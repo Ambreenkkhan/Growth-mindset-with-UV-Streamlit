@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 import random
+from fpdf import FPDF
 import io
 
 # Set page config
@@ -60,34 +61,34 @@ quotes = [
 quote_of_the_week = random.choice(quotes)
 st.markdown(f"### 🌟 Motivational Quote of the Week: {quote_of_the_week}")
 
-# # 📝 PDF Export Button
-# if st.session_state.learning_data:
-#     if st.button("Download Progress as PDF"):
-#         pdf = FPDF()
-#         pdf.set_auto_page_break(auto=True, margin=15)
-#         pdf.add_page()
-#         pdf.set_font("Arial", size=12)
+# 📝 PDF Export Button
+if st.session_state.learning_data:
+    if st.button("Download Progress as PDF"):
+        pdf = FPDF()
+        pdf.set_auto_page_break(auto=True, margin=15)
+        pdf.add_page()
+        pdf.set_font("Arial", size=12)
 
-#         # Title
-#         pdf.cell(200, 10, txt=f"Your Learning Log", ln=True, align='C')
-#         pdf.ln(10)
+        # Title
+        pdf.cell(200, 10, txt=f"Your Learning Log", ln=True, align='C')
+        pdf.ln(10)
 
-        # # # Add entries
-        # # for entry in st.session_state.learning_data:
-        # #     pdf.cell(200, 10, txt=f"{entry['date']} - Mood: {entry['mood']}", ln=True)
-        # #     pdf.multi_cell(0, 10, f"Learning: {entry['learning']}")
-        # #     pdf.ln(5)
+        # Add entries
+        for entry in st.session_state.learning_data:
+            pdf.cell(200, 10, txt=f"{entry['date']} - Mood: {entry['mood']}", ln=True)
+            pdf.multi_cell(0, 10, f"Learning: {entry['learning']}")
+            pdf.ln(5)
 
-        # # # Save to buffer as bytes
-        # # pdf_bytes = pdf.output(dest='S').encode('latin1')
-        # # buffer = io.BytesIO(pdf_bytes)
+        # Save to buffer as bytes
+        pdf_bytes = pdf.output(dest='S').encode('latin1')
+        buffer = io.BytesIO(pdf_bytes)
 
-        # st.download_button(
-        #     label="📄 Download PDF",
-        #     data=buffer,
-        #     file_name="daily_growth_report.pdf",
-        #     mime="application/pdf"
-        # )
+        st.download_button(
+            label="📄 Download PDF",
+            data=buffer,
+            file_name="daily_growth_report.pdf",
+            mime="application/pdf"
+        )
 
 
 # Footer
