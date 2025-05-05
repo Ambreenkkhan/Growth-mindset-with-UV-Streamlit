@@ -59,7 +59,7 @@ quotes = [
     "Push yourself, because no one else is going to do it for you."
 ]
 quote_of_the_week = random.choice(quotes)
-st.markdown(f"### 🌟 Motivational Quote of the Week: {quote_of_the_week}")
+st.markdown(f"### 🌟 Motivational Quote of the Week: \n {quote_of_the_week}")
 
 # 📝 PDF Export Button
 if st.session_state.learning_data:
@@ -93,4 +93,4 @@ if st.session_state.learning_data:
 
 # Footer
 st.markdown("---")
-st.markdown("Developed by **Ambreen Adnan**")
+st.markdown("Developed by:   Ambreen Adnan")

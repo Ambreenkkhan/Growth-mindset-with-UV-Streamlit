@@ -17,33 +17,12 @@ The **Growth Mindset Tracker Web App** is designed to help individuals track the
 - **Pandas**: For handling and processing the learning data.
 - **FPDF**: For generating downloadable PDF reports.
 
-## Setup Instructions
-
 ### Prerequisites
 
 - Python 3.7 or higher
 - Streamlit
 - Pandas
 - FPDF
-
-### Installation Steps
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/your-username/growth-mindset-tracker.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd growth-mindset-tracker
-    ```
-3. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-4. Run the Streamlit app:
-    ```bash
-    streamlit run app.py
-    ```
 
 ## How to Use
 
